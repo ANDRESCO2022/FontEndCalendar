@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { AppRouter } from './router'
 import { store } from './store'
 
@@ -8,9 +8,12 @@ export const CalendarApp = () => {
     <Provider store={store}>
       <h1>CalendarApp</h1>
       <hr />
-      <BrowserRouter>
+      <HashRouter>
         <AppRouter />
-      </BrowserRouter>
+      </HashRouter>
+
+      {/* <BrowserRouter> */}
+      {/* </BrowserRouter> */}
     </Provider>
   )
 }
