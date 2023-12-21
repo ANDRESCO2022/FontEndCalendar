@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import Modal from 'react-modal'
 import es from 'date-fns/locale/es'
 import { useCalendarStorte, useUiStore } from '../../hooks'
+import { getEnvVariables } from '../../helpers'
 registerLocale('es', es)
 const customStyles = {
   content: {
@@ -18,7 +19,9 @@ const customStyles = {
     transform: 'translate(-50%, -50%)'
   }
 }
-Modal.setAppElement('#root')
+if (getEnvVariables().VITE_MODE !== 'test') {
+  Modal.setAppElement('#root')
+}
 export const CalendarModal = () => {
   const { isDateModalOpen, closeDateModal } = useUiStore()
   const { activeEvent, startSavingEvent } = useCalendarStorte()
